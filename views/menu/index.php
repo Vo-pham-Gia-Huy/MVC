@@ -72,5 +72,5 @@ foreach ($categoriesData as $row1) {
 			</nav>
 		</div>
 	</div>
-
+	<div class="cart"><a class="btn btn-danger" href="<?php echo html_helpers::url(['ctl'=>'menu','act'=>'cart']); ?>"><i class="fa-sharp fa-solid fa-cart-shopping"></i><span> Xem Giỏ Hàng</span></a></div>
 <?php include_once 'views/layout/' . $this->layout . 'footer.php';?>

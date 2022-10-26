@@ -20,6 +20,15 @@ i {
   height: 1px;
 }
 */
+.col-4 .img-thumbnail{
+  width: unset;
+}
+.amount{
+  text-align: center;
+  width: 50px;
+  border: 0;
+  outline:#1c2022
+}
 a{
   text-decoration:none;
   color:#1c2022;
@@ -164,7 +173,7 @@ position: static;
   bottom: 0;
   left: 100%;
 }
-.img-thumbnail{
+div > .img-thumbnail{
   height: 200px;
   width:50%;
 }
@@ -198,7 +207,12 @@ header .submenu .submenu .submenu {
 }
 
 /* Arrows */
-
+.cart{
+  position:fixed;
+  bottom: 20px;
+  z-index: 1000;
+  right: 50px;
+}
 .arrow {
   width: 0.5em;
   height: 0.5em;

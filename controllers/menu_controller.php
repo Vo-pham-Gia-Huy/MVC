@@ -1,4 +1,5 @@
-<?php
+<?php session_start();?>
+<?php 
 class menu_controller extends main_controller
 {
 	//public $components = array('SimpleImage');
@@ -28,7 +29,16 @@ class menu_controller extends main_controller
 		//$this->setProperty('records',$records);
 		$this->display();
 	} 
-
+	public function addAjax(){
+		// print_r($_POST);
+		$product = product_model::getInstance();
+		$session = $product->getRecordHasRelated($_POST['value']);
+		$a=[$session['id']=>$session];
+		// print_r($a)
+		$_SESSION['cart'][$session['id']]=$session;
+		print_r($_SESSION);
+		exit();
+	} 
 	// public function add() 
 	// {
 	// 	if(isset($_POST['btn_submit'])) {
@@ -61,7 +71,11 @@ class menu_controller extends main_controller
 	// 	}
 	// 	$this->display();
 	// }
-	
+	public function deleteAjax(){
+		unset($_SESSION['cart'][$_POST['value']]);
+		echo 'successful';
+		exit();
+	}
 	public function view($id) 
 	{
 		$product = product_model::getInstance();
@@ -69,7 +83,10 @@ class menu_controller extends main_controller
 		$this->setProperty('record',$record);
 		$this->display();
 	}
-	
+	public function cart() 
+	{
+		$this->display();
+	}
 	// public function del($id) 
 	// {
 	// 	$product = product_model::getInstance();

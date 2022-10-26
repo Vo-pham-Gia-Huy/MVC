@@ -25,8 +25,9 @@ $(document).ready(function () {
       e.preventDefault();
     });
   }
-  $('.submenu').click(function (e) {
-    a=$(this).height();
+  $(".submenu").click(function (e) {
+    a = $(this).height();
     console.log(a);
-  })
+  });
+
 });
