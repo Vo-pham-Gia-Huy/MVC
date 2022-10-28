@@ -22,6 +22,7 @@ i {
 */
 .col-4 .img-thumbnail{
   width: unset;
+  height: 400px;
 }
 .amount{
   text-align: center;
@@ -29,18 +30,31 @@ i {
   border: 0;
   outline:#1c2022
 }
+#woman{
+  margin-left: 20px;
+}
+.name-mobile{
+  display:flex;
+}
+.fill{
+  position:relative;
+  width:49%;
+}
+#fullName,#contact,#city,#district,#ward,#street{
+  padding: 10px;
+  border: 1px solid #d1d1d1;
+  width:100%
+}
 a{
   text-decoration:none;
   color:#1c2022;
 }
 :root {
   box-sizing: border-box;
-
   --primary: #e70146;
   --hover-color: #fdd052;
   --dark: #1c2022;
   --light: #fff;
-
   --header-bg: var(--primary);
 }
 header{

@@ -33,7 +33,7 @@ class menu_controller extends main_controller
 		// print_r($_POST);
 		$product = product_model::getInstance();
 		$session = $product->getRecordHasRelated($_POST['value']);
-		$a=[$session['id']=>$session];
+		$session['amount']=$_POST['amount'];
 		// print_r($a)
 		$_SESSION['cart'][$session['id']]=$session;
 		print_r($_SESSION);

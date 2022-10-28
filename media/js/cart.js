@@ -2,7 +2,7 @@ $(document).ready(function () {
   $(".deleteSession").click(function() {
     let url =
       "http://localhost/php-oop-mvc-2021/index.php?ctl=menu&act=deleteAjax";
-    let a = $(".deleteSession").attr("value");
+    let a = $(this).attr("value");
     let tc = $(this);
     console.log(tc);
     var cf = confirm("Are you sure!");
@@ -22,6 +22,11 @@ $(document).ready(function () {
       });
     }
   });
+  $('button.btn').click(function(){
+    let amount =$('.amount').val();
+    amount=parseInt(amount)+parseInt($(this).attr("value"));
+    $('.amount').val(amount?amount:1)
+  })
   $("#addCart").click(function () {
     let url = $(location).attr("href");
     let a = $("#addCart").attr("value");
@@ -31,6 +36,7 @@ $(document).ready(function () {
       method: "post",
       data: {
         value: a,
+        amount: $('.amount').val()
       },
     }).done(function (response) {
       console.log(response);
