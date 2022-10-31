@@ -83,6 +83,10 @@ class menu_controller extends main_controller
 		$this->setProperty('record',$record);
 		$this->display();
 	}
+	public function login() 
+	{
+		$this->display();
+	}
 	public function cart() 
 	{
 		$this->display();

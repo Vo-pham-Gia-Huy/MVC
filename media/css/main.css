@@ -38,7 +38,17 @@ i {
 }
 .fill{
   position:relative;
-  width:49%;
+  width:50%;
+}
+.jumbotron{
+  margin: 0 auto;
+}
+.hr-divider{
+  width:40% !important;
+}
+.link-social{
+  font-weight: 800;
+  font-size:  24px;
 }
 #fullName,#contact,#city,#district,#ward,#street{
   padding: 10px;

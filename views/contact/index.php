@@ -6,7 +6,10 @@
 <?php include_once 'views/layout/'.$this->layout.'header.php'; ?>
 <div class="jumbotron">
 	<h1>This is contact page</h1>
-	<form class="form-horizontal">
+	<form method="post" class="form-horizontal" action="<?php echo html_helpers::url(
+		array('ctl'=>'contact', 
+			  'act'=>'add',
+)); ?>">
 	  <div class="form-group">
 		<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 		<div class="col-sm-10">
@@ -30,7 +33,7 @@
 	  </div>
 	  <div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
-		  <button type="submit" class="btn btn-default">Sign in</button>
+		  <button type="submit" name="btn_submit" class="btn btn-default">Sign in</button>
 		</div>
 	  </div>
 	</form>

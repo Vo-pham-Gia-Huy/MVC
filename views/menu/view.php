@@ -22,12 +22,12 @@
 				</div>
 				<div class="">
 					<a href="<?php echo html_helpers::url(['ctl'=>'menu']); ?>" class="btn btn-info btn-sm m-1 p-2">Back</a>
-					<a href="javascript:void(0)" class="btn btn-danger" id="addCart" value="<?php echo $this->record['id']; ?>"><i class="fa-solid fa-cart-shopping"></i><span> Thêm Vào Giỏ Hàng</span></a>
+					<a href="javascript:void(0)" class="btn btn-danger" id="addCart" value="<?php echo $this->record['id']; ?>"><i class="fa-solid fa-cart-shopping"></i><span> Add to Cart</span></a>
 				</div>	
 			</div>
 		</div>
 	</div>
 </div>
-<div class="cart"><a href="<?php echo html_helpers::url(['ctl'=>'menu','act'=>'cart']); ?>" class="btn btn-danger"><i class="fa-sharp fa-solid fa-cart-shopping"></i><span> Xem Giỏ Hàng</span></a></div>
+<div class="cart"><a href="<?php echo html_helpers::url(['ctl'=>'menu','act'=>'cart']); ?>" class="btn btn-danger"><i class="fa-sharp fa-solid fa-cart-shopping"></i><span> Show Cart</span></a></div>
 <?php array_push($mediaFiles['js'], RootREL."media/js/cart.js"); ?>
 <?php include_once 'views/layout/' . $this->layout . 'footer.php';?>

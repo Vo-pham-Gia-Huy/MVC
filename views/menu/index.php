@@ -3,6 +3,10 @@ global $mediaFiles;
 array_push($mediaFiles['css'], RootREL . 'media/fontawesome/css/all.css');
 ?>
 <?php include_once 'views/layout/' . $this->layout . 'header.php';?>
+<?php if(!isset($_SESSION['login'])){ ?>
+  <h1>You are not logged in! Do you want to login?</h1>
+  <h3><a href="<?php echo html_helpers::url(array('ctl'=>'menu','act'=>'login'));?>" class="btn btn-outline-info">Login</a></h3>
+<?php } ?>
 <?php $e=mysqli_fetch_row($this->numRows)[0] ?>
 <?php $numPage=ceil($e/12);?>
 <?php 	$categories = categorie_model::getInstance();
@@ -72,5 +76,5 @@ foreach ($categoriesData as $row1) {
 			</nav>
 		</div>
 	</div>
-	<div class="cart"><a class="btn btn-danger" href="<?php echo html_helpers::url(['ctl'=>'menu','act'=>'cart']); ?>"><i class="fa-sharp fa-solid fa-cart-shopping"></i><span> Xem Giỏ Hàng</span></a></div>
+	<div class="cart"><a class="btn btn-danger" href="<?php echo html_helpers::url(['ctl'=>'menu','act'=>'cart']); ?>"><i class="fa-sharp fa-solid fa-cart-shopping"></i><span> Show Cart</span></a></div>
 <?php include_once 'views/layout/' . $this->layout . 'footer.php';?>
