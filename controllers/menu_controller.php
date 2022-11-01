@@ -69,7 +69,7 @@ class menu_controller extends main_controller
 	// 				header( "Location: ".html_helpers::url(array('ctl'=>'products')));
 	// 		}
 	// 	}
-	// 	$this->display();
+	// 	$this->display();$user
 	// }
 	public function deleteAjax(){
 		unset($_SESSION['cart'][$_POST['value']]);
@@ -84,6 +84,15 @@ class menu_controller extends main_controller
 		$this->display();
 	}
 	public function login() 
+	{	
+		if(isset($_POST['btn_submit'])){
+			unset($_POST['btn_submit']);
+			$user = user_model::getInstance();
+			$check=$user->checkExist($_POST);
+		}
+		$this->display();
+	}
+	public function register() 
 	{
 		$this->display();
 	}

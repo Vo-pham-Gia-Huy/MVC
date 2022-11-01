@@ -2,7 +2,7 @@
 <?php global $mediaFiles; ?>
 <?php if(!isset($_SESSION['login'])){ ?>
   <h1>You are not logged in! Do you want to login?</h1>
-  <h3><a href="<?php echo html_helpers::url(array('ctl'=>'contact'));?>" class="btn btn-outline-info">Login</a></h3>
+  <h3><a href="<?php echo html_helpers::url(array('ctl'=>'menu','act'=>'login'));?>" class="btn btn-outline-info">Login</a></h3>
 <?php } ?>
 <div class="col-xs-12">
 	<div class="table-responsive">

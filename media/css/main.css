@@ -50,6 +50,10 @@ i {
   font-weight: 800;
   font-size:  24px;
 }
+.link-social a{
+  width: 60px;
+  height: 60px;
+}
 #fullName,#contact,#city,#district,#ward,#street{
   padding: 10px;
   border: 1px solid #d1d1d1;
@@ -139,6 +143,9 @@ body {
   justify-content: flex-start!important;
   width:20%;
 }
+.img-thumbnail{
+  cursor: pointer;
+}
 .categories ul{
   padding-right: 32px;
 }
@@ -165,6 +172,11 @@ position: static;
 #myUL a{
   color: black;
   text-decoration: none;
+}
+#label-photo{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
 }
 /* .slideup, .slidedown {
   max-height: 0;            

@@ -12,7 +12,19 @@ class users_controller extends main_controller
 		
 		$this->display();
 	} 
-
+	public function register(){
+		if(isset($_POST['btn_submit'])) {
+			$userData = $_POST;
+			unset($userData['btn_submit']);
+			if(!empty($userData['email']))  {
+				$userData['photo'] = SimpleImage_Component::uploadImg($_FILES, $this->controller);
+				$user = user_model::getInstance();
+				if($user->addRecord($userData))
+					header( "Location: ".html_helpers::url(array('ctl'=>'menu','act'=>'login')));
+			}
+		}
+		$this->display();
+	}
 	public function add() 
 	{
 		if(isset($_POST['btn_submit'])) {

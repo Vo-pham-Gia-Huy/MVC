@@ -22,7 +22,7 @@ class main_controller
         if (method_exists($this, $this->action)) {
             if (count($_GET) > 2) {
                 // This build for CRUD
-                if ($this->action == 'view' || $this->action == 'login' ||$this->action == 'edit' || $this->action == 'del' || $this->action == 'addAjax' || $this->action == 'moveAjax' || $this->action == 'deleteAjax' || $this->action == 'editAjax' || $this->action == 'getCategories'||$this->action== 'cart' ) {
+                if ($this->action == 'view' || $this->action == 'register' || $this->action == 'login' || $this->action == 'edit' || $this->action == 'del' || $this->action == 'addAjax' || $this->action == 'moveAjax' || $this->action == 'deleteAjax' || $this->action == 'editAjax' || $this->action == 'getCategories' || $this->action == 'cart') {
                     $id = '';
                     if (isset($_GET['id'])) {
                         $id = $_GET['id'];

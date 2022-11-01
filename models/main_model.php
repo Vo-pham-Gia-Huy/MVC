@@ -37,7 +37,12 @@ class Main_Model
 	public function getTableName() {
 		return $this->table;
 	}
-	
+	public function checkExist($option) {
+		$query = "SELECT count(id) FROM $this->table where $this->table.email='".$option['email']."' and $this->table.password='".$option['password']."'";
+		echo $query;
+		$result = mysqli_query($this->con,$query);
+		return $result;
+	}
 	public function getAllTables() {
 		$sql = "SHOW TABLES FROM ".DB_NAME;
 		$query = mysqli_query($this->con,$sql);

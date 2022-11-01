@@ -12,10 +12,10 @@ array_push($mediaFiles['css'], "media/css/login.css");
 			'act' => 'login',
 		)); ?>">
 		<div class="form-group  w-100 p-3">
-			<input type="text" class="form-control" id="inputEmail3" placeholder="Email/Phone Number/Username">
+			<input name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email/Phone Number/Username">
 		</div>
 		<div class="form-group  w-100 p-3">
-			<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+			<input name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
 		</div>
 		<div class="form-group  w-100 p-3 d-flex justify-content-between align-items-center">
 			<label>
@@ -29,14 +29,12 @@ array_push($mediaFiles['css'], "media/css/login.css");
 			<div class=""><a class="">Login with SMS</a></div>
 		</div>
 		<div class="d-flex justify-content-between w-100 align-items-center px-3 py-2"><hr class="featurette-divider hr-divider">Or<hr class="featurette-divider hr-divider"></div>
-		<div class="d-flex justify-content-between w-100 px-3 py-2 link-social">
-			<a class="px-3 shadow-sm p-3 mb-5 bg-body rounded rounded-circle"><i class="fa-brands fa-facebook"></i></a>
-			<a class="px-3 shadow-sm p-3 mb-5 bg-body rounded rounded-circle"><i class="fa-brands fa-google"></i></a>
-			<a class="px-3 shadow-sm p-3 mb-5 bg-body rounded rounded-circle"><i class="fa-brands fa-apple"></i></a>
+		<div class="d-flex justify-content-between w-100 px-3 py-2 link-social mb-2">
+			<a class="px-3 shadow-sm p-3  bg-body rounded rounded-circle text-center"><i class="fa-brands fa-facebook"></i></a>
+			<a class="px-3 shadow-sm p-3  bg-body rounded rounded-circle text-center"><i class="fa-brands fa-google"></i></a>
+			<a class="px-3 shadow-sm p-3  bg-body rounded rounded-circle text-center"><i class="fa-brands fa-apple"></i></a>
 		</div>
-		<div class=""></div>
+		<div class="text-center m-1"><p class="">You Have An Account ? <a class="text-decoration-underline" href="<?php echo html_helpers::url(array('ctl'=>'menu','act'=>'register'));?>">Register</a></p></div>
 	</div>
 </div>
-<?php array_push($mediaFiles['js'], "media/js/jquery.min.js");?>
-<?php array_push($mediaFiles['js'], "media/js/login.js");?>
 <?php include_once 'views/layout/' . $this->layout . 'footer.php';?>
