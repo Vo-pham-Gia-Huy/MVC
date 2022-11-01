@@ -20,6 +20,7 @@ $tree = array();
 foreach ($categoriesData as $row1) {
     html_helpers::Tree($row1, $tree);
 }
+print_r($_SESSION);
 // echo '<pre>';
 // print_r($tree);
 // echo '</pre>';

@@ -1,4 +1,4 @@
-<?php session_start();?>
+
 <?php 
 class menu_controller extends main_controller
 {
@@ -85,15 +85,32 @@ class menu_controller extends main_controller
 	}
 	public function login() 
 	{	
+		$this->check['0']=null;
 		if(isset($_POST['btn_submit'])){
 			unset($_POST['btn_submit']);
 			$user = user_model::getInstance();
-			$check=$user->checkExist($_POST);
+			$this->check=$user->checkExist($_POST);
+			if($this->check['0']==1){
+				$_SESSION['login']= $user->getRecord(null,'*',$_POST);
+				header( "Location: ".html_helpers::url(array('ctl'=>'menu')));
+			}
 		}
 		$this->display();
 	}
-	public function register() 
-	{
+	public function register(){
+		if(isset($_POST['btn_submit'])) {
+			$userData = $_POST;
+			unset($userData['btn_submit']);
+			if(!empty($userData['email']))  {
+				$userData['photo'] = SimpleImage_Component::uploadImg($_FILES, 'users');
+				if($userData['photo']==''){
+					$userData['photo']= 'no-avatar.png';
+				}
+				$user = user_model::getInstance();
+				if($user->addRecord($userData))
+					header( "Location: ".html_helpers::url(array('ctl'=>'menu','act'=>'login')));
+			}
+		}
 		$this->display();
 	}
 	public function cart() 

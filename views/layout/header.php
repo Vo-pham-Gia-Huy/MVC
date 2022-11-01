@@ -77,10 +77,11 @@ foreach ($categoriesData as $row1) {
               <a class="menu-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
           </ul>
-          <form class="d-flex">
+          <div class="d-flex align-items-center">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+            <div class="d-flex align-items-center mx-3 flex-column text-center"><?php echo isset($_SESSION['login'])?'<img src="media/upload/users/'.$_SESSION["login"]["photo"].'" class="img-avatar text-center"></img><p class="ava-name text-white">'.$_SESSION['login']['fullname'].'</p>':'<img src="media/upload/users/'.$_SESSION["login"]["photo"].'"></img>' ?></div>
+          </div>
 
 
     </div>

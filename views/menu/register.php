@@ -13,7 +13,7 @@ global $mediaFiles;
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">REGISTER</h2>
 
-              <form id="register_form" method="post" enctype="multipart/form-data" action="<?php echo html_helpers::url(array('ctl'=>'users', 'act'=>'register')); ?>">
+              <form id="register_form" method="post" enctype="multipart/form-data" action="<?php echo html_helpers::url(array('ctl'=>'menu', 'act'=>'register')); ?>">
                 <div class="form-outline mb-4 mx-2 text-center">
                     <div class="image-upload">
                         <label for="photo" class=" col-form-label"><img src="https://el.tvu.edu.vn/images/avatar/no-avatar.png" class="img-thumbnail" id="label-photo"></label>

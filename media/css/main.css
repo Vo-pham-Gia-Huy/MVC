@@ -6,6 +6,9 @@
   text-decoration: none;
   
 }
+p{
+  margin: 0;
+}
 body {
   padding-top: 5rem;
   padding-bottom: 3rem;
@@ -20,6 +23,15 @@ i {
   height: 1px;
 }
 */
+.img-avatar{
+ width: 30px !important;
+ height:30px !important;
+ max-width: unset;
+ border-radius: 50%;
+}
+.ava-name{
+  min-width:130px;
+}
 .col-4 .img-thumbnail{
   width: unset;
   height: 400px;
