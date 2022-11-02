@@ -17,6 +17,18 @@ body {
 main >.container:first-child {
 	min-height: 500px;
 }
+.dropdown-menu[data-bs-popper]{
+  left: unset !important;
+  top:50%;
+}
+.warning{
+  color:red;
+}
+/* .dropdown-toggle::after{
+  position: absolute;
+  top: 30%;
+
+} */
 /*
 i {
   width: 1px;

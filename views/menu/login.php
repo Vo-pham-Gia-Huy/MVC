@@ -24,7 +24,7 @@ array_push($mediaFiles['css'], "media/css/login.css");
 			<label>
 		      <input type="checkbox"> Remember me
 		    </label>
-			<button type="submit" name="btn_submit" class="btn btn-outline-info">Sign in</button>
+			<button type="submit" name="btn_submit" class="btn btn-outline-info">Login</button>
 		</div>
 		</form>
 		<div class="d-flex justify-content-between w-100 forgot px-3 py-2">

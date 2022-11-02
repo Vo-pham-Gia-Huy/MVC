@@ -29,5 +29,8 @@ $(document).ready(function () {
     a = $(this).height();
     console.log(a);
   });
-
+  $('#logout').click(function(e){
+    e.stopPropagation();
+    var cf = confirm("Are you sure logout!");
+  })
 });

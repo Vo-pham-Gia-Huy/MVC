@@ -37,53 +37,51 @@ foreach ($categoriesData as $row1) {
         <span class="navbar-toggler-icon"></span>
       </button> -->
 
-        <label for="input-hamburger" class="hamburger "></label>
-        <input type="checkbox" id="input-hamburger" hidden>
-          <ul class="navbar-nav me-auto mb-2 mb-md-0 menu" id='menu1'>
+    <label for="input-hamburger" class="hamburger "></label>
+    <input type="checkbox" id="input-hamburger" hidden>
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 menu" id='menu1'>
+        <li class="nav-item">
+          <a class="menu-link active" aria-current="page" href="<?php echo html_helpers::url('/'); ?>">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'about']); ?>">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'tables']); ?>">Tables</a>
+        </li>
+        <li class="nav-item">
+          <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'students']); ?>">Students</a>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a class="menu-link " >Categories and Products &nbsp;&nbsp;&nbsp;&nbsp;<span class="arrow"></span></a>
+          <ul class="submenu">
             <li class="nav-item">
-              <a class="menu-link active" aria-current="page" href="<?php echo html_helpers::url('/'); ?>">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'about']); ?>">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'tables']); ?>">Tables</a>
-            </li>
-            <li class="nav-item">
-              <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'students']); ?>">Students</a>
-            </li>
-            <li class="nav-item has-dropdown">
-              <a class="menu-link " >Categories and Products &nbsp;&nbsp;&nbsp;&nbsp;<span class="arrow"></span></a>
-              <ul class="submenu">
-                <li class="nav-item">
-                  <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'categories']); ?>">Categories</a>
-                </li>
-                <li class="nav-item">
-                  <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'products']); ?>">Products</a>
-                </li>
-              </ul> 
+              <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'categories']); ?>">Categories</a>
             </li>
             <li class="nav-item">
-              <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'users']); ?>">Users</a>
+              <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'products']); ?>">Products</a>
             </li>
-            <li class="nav-item has-dropdown">
-              <a class="menu-link "  href="<?php echo html_helpers::url(['ctl' => 'menu']); ?>">Menu&nbsp;&nbsp;&nbsp;&nbsp;<span class="arrow"></span></a>
-              <?php print_r(html_helpers::menu($tree));?>
-            </li>
-            <li class="nav-item">
-              <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'contact']); ?>">Contact us</a>
-            </li>
-            <li class="nav-item">
-              <a class="menu-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <div class="d-flex align-items-center">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-            <div class="d-flex align-items-center mx-3 flex-column text-center"><?php echo isset($_SESSION['login'])?'<img src="media/upload/users/'.$_SESSION["login"]["photo"].'" class="img-avatar text-center"></img><p class="ava-name text-white">'.$_SESSION['login']['fullname'].'</p>':'<img src="media/upload/users/'.$_SESSION["login"]["photo"].'"></img>' ?></div>
-          </div>
-
-
+          </ul> 
+        </li>
+        <li class="nav-item">
+          <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'users']); ?>">Users</a>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a class="menu-link "  href="<?php echo html_helpers::url(['ctl' => 'menu']); ?>">Menu&nbsp;&nbsp;&nbsp;&nbsp;<span class="arrow"></span></a>
+          <?php print_r(html_helpers::menu($tree));?>
+        </li>
+        <li class="nav-item">
+          <a class="menu-link" href="<?php echo html_helpers::url(['ctl' => 'contact']); ?>">Contact us</a>
+        </li>
+        <li class="nav-item">
+          <a class="menu-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        <div class="d-flex align-items-center mx-3 flex-column text-center"><?php echo (isset($_SESSION['login']))?' <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="media/upload/users/'.(($_SESSION["login"]["photo"]!='')?$_SESSION["login"]["photo"]:'no-avatar.png').'" class="img-avatar text-center"></img></a><ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink"><li><a class="dropdown-item" href="#">My Account</a></li><li><a class="dropdown-item" href="'. html_helpers::url(array('ctl'=>'menu','act'=>'changePass')).'">Change Password</a></li><li><a class="dropdown-item" href="'.html_helpers::url(['ctl'=>'menu','act'=>'cart']).'">Cart</a></li><li><a class="dropdown-item" id="logout" href="'. html_helpers::url(array('ctl'=>'menu','act'=>'logout')).'">Logout</a></li></ul><p class="ava-name text-white">'.$_SESSION['login']['fullname'].'</p>':'<div class="d-flex align-items-center"><a class=" text-white" href="'. html_helpers::url(array('ctl'=>'menu','act'=>'register')).'">Register</a>|<a class=" text-white" href="'. html_helpers::url(array('ctl'=>'menu','act'=>'login')).'">Login</a></div>' ?></div>
+      </div>
     </div>
   </div>
 </header>
