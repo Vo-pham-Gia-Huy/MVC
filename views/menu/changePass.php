@@ -11,19 +11,21 @@ global $mediaFiles;
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Chang Password</h2>
+              <h2 class="text-uppercase text-center mb-5">Change Password</h2>
 
-              <form id="register_form" method="post" enctype="multipart/form-data" action="<?php echo html_helpers::url(array('ctl'=>'menu', 'act'=>'register')); ?>">
+              <form id="register_form" method="post" enctype="multipart/form-data" action="<?php echo html_helpers::url(array('ctl'=>'menu', 'act'=>'changePass')); ?>">
                 <div class="form-outline mb-4 mx-2">
-                  <input placeholder="current Password" type="password" id="current-password" class="form-control form-control-lg " />
+                  <input name="current_password" placeholder="current Password" type="password" id="current-password" class="form-control form-control-lg " />
+                  <?php echo isset($this->check['1'])?'<p class="warning px-2 mt-2" >'.$this->check['1'].'</p>':'' ?> 
                 </div>
                 
                 <div class="form-outline mb-4 mx-2">
-                  <input placeholder="New password" type="password" id="password" class="form-control form-control-lg " />
+                  <input name="new_password" placeholder="New password" type="password" id="password" class="form-control form-control-lg " />
                 </div>
 
                 <div class="form-outline mb-4 mx-2">
                   <input name="password" placeholder="Repeat your new password" type="password" id="repeat-password" class="form-control form-control-lg " />
+                  <?php echo isset($this->check['2'])?'<p class="warning px-2 mt-2" >'.$this->check['2'].'</p>':'' ?> 
                 </div>
 
                 <div class="d-flex justify-content-center">
@@ -32,9 +34,7 @@ global $mediaFiles;
 
                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
                     class="fw-bold text-body"><u>Login here</u></a></p>
-
               </form>
-
             </div>
           </div>
         </div>

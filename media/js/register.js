@@ -23,6 +23,7 @@ $(document).ready(function () {
     if(pass!=repeatPass){
       formInvalid = true;
     }
+    $('#register_form').find('.warning').remove();
     $("#register_form input").each(function () {
       if (
         $(this).val() === "" &&
@@ -37,6 +38,7 @@ $(document).ready(function () {
         }
         formInvalid = true;
       }
+     
       
     });
     

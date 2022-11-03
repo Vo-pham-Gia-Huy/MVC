@@ -46,6 +46,14 @@ class main_controller
         $id = $pathArray[count($pathArray) - 1];
         return $id;
     }
+    public function checkSpecialChar($array){
+        foreach($array as $v){
+            if(str_contains($v, '"') && str_contains($v, "'")){
+                return false;
+            }
+        }
+        return true;
+    }
     public function display($options = null)
     {
         if (!isset($options['ctl'])) {

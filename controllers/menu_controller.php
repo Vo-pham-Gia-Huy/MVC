@@ -90,7 +90,7 @@ class menu_controller extends main_controller
         unset($_SESSION['cart']);
         $this->check['0'] = null;
         if (isset($_POST['btn_submit'])) {
-            if (!str_contains($_POST['email'], '"') && !str_contains($_POST['email'], "'") && !str_contains($_POST['password'], "'") && !str_contains($_POST['password'], "'")) {
+            if ($this->checkSpecialChar($_POST)) {
                 unset($_POST['btn_submit']);
                 $user = user_model::getInstance();
                 $this->check = $user->checkExist($_POST);
@@ -109,24 +109,31 @@ class menu_controller extends main_controller
         header("Location: " . html_helpers::url(array('ctl' => 'menu')));
     }
     public function changePass()
-    {
+    {   
+        if (isset($_POST['btn_submit'])) {
+            if($_POST['current_password']!=$_SESSION['login']['password']){
+                $this->check=['1'=>'current password is incorrect, please re-enter.'];
+            }else if($_POST['new_password']!=$_POST['password']){
+                $this->check=['2'=>'repeat new password is incorrect, please re-enter.'];
+            }else{
+                $user = user_model::getInstance();
+            }
+        }
         $this->display();
     }
     public function register()
     {
         if (isset($_POST['btn_submit'])) {
-            $userData = $_POST;
-            unset($userData['btn_submit']);
-            if (!empty($userData['email'])) {
-                $userData['photo'] = SimpleImage_Component::uploadImg($_FILES, 'users');
-                if ($userData['photo'] == '') {
-                    $userData['photo'] = 'no-avatar.png';
+            if ($this->checkSpecialChar($_POST)) {
+                $userData = $_POST;
+                unset($userData['btn_submit']);
+                if (!empty($userData['email'])) {
+                    $userData['photo'] = SimpleImage_Component::uploadImg($_FILES, 'users')==''?'no-avatar.png':SimpleImage_Component::uploadImg($_FILES, 'users');
+                    $user = user_model::getInstance();
+                    if ($user->addRecord($userData)) {
+                        header("Location: " . html_helpers::url(array('ctl' => 'menu', 'act' => 'login')));
+                    }
                 }
-                $user = user_model::getInstance();
-                if ($user->addRecord($userData)) {
-                    header("Location: " . html_helpers::url(array('ctl' => 'menu', 'act' => 'login')));
-                }
-
             }
         }
         $this->display();
