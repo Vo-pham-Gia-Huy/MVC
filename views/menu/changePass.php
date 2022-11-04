@@ -29,7 +29,7 @@ global $mediaFiles;
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button name="btn_submit" type="submit" id="register" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  <button name="btn_submit" type="submit" id="register" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Change Password</button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"

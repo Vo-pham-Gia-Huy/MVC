@@ -110,6 +110,9 @@ class menu_controller extends main_controller
     }
     public function changePass()
     {   
+        if(!isset($_SESSION['login'])){
+            header("Location: " . html_helpers::url(array('ctl' => 'menu')));
+        }
         if (isset($_POST['btn_submit'])) {
             if($_POST['current_password']!=$_SESSION['login']['password']){
                 $this->check=['1'=>'current password is incorrect, please re-enter.'];
@@ -117,20 +120,30 @@ class menu_controller extends main_controller
                 $this->check=['2'=>'repeat new password is incorrect, please re-enter.'];
             }else{
                 $user = user_model::getInstance();
+                $user->editRecord($_SESSION['login']['id'],['password'=>$_POST['new_password']]);
+                $_SESSION['login']['password']=$_POST['new_password'];
+                header("Location: " . html_helpers::url(array('ctl' => 'menu')));
             }
         }
         $this->display();
     }
     public function register()
-    {
+    {   
+        $this->check['0'] = null;
         if (isset($_POST['btn_submit'])) {
             if ($this->checkSpecialChar($_POST)) {
                 $userData = $_POST;
                 unset($userData['btn_submit']);
                 if (!empty($userData['email'])) {
-                    $userData['photo'] = SimpleImage_Component::uploadImg($_FILES, 'users')==''?'no-avatar.png':SimpleImage_Component::uploadImg($_FILES, 'users');
                     $user = user_model::getInstance();
-                    if ($user->addRecord($userData)) {
+                    $this->check = $user->checkExist(['email'=>$_POST['email']]);
+                    if($_POST['repeat_password']!=$_POST['password']){
+                        $this->error=['1'=>'repeat new password is incorrect, please re-enter.'];
+                    }
+                    if ($this->check['0'] == 0) {
+                        $userData['photo'] = SimpleImage_Component::uploadImg($_FILES, 'users')==''?'no-avatar.png':SimpleImage_Component::uploadImg($_FILES, 'users'); 
+                        unset($userData['repeat_password']);
+                        $user->addRecord($userData);
                         header("Location: " . html_helpers::url(array('ctl' => 'menu', 'act' => 'login')));
                     }
                 }

@@ -18,7 +18,7 @@ array_push($mediaFiles['css'], "media/css/login.css");
 			<input name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
 		</div>
 		<?php if($this->check['0']==0 && $this->check['0']!=null){
-				echo '<div class="form-group px-3 m-0 w-100"><p class="text-danger">Email or password is incorrect, please re-enter</p></div>';
+				echo '<div class="form-group px-3 m-0 w-100"><p class="warning px-2 mt-2">Email or password is incorrect, please re-enter</p></div>';
 			} ?>
 		<div class="form-group  w-100 p-3 d-flex justify-content-between align-items-center">
 			<label>
@@ -40,4 +40,5 @@ array_push($mediaFiles['css'], "media/css/login.css");
 		<div class="text-center m-1"><p class="">You Have An Account ? <a class="text-decoration-underline" href="<?php echo html_helpers::url(array('ctl'=>'menu','act'=>'register'));?>">Register</a></p></div>
 	</div>
 </div>
+<?php array_push($mediaFiles['js'],RootREL."media/js/register.js"); ?>
 <?php include_once 'views/layout/' . $this->layout . 'footer.php';?>

@@ -35,11 +35,12 @@ global $mediaFiles;
                 </div>
                 
                 <div class="form-outline mb-4 mx-2">
-                  <input placeholder="Password" type="password" id="password" class="form-control form-control-lg " />
+                  <input name="password" placeholder="Password" type="password" id="password" class="form-control form-control-lg " />
                 </div>
 
                 <div class="form-outline mb-4 mx-2">
-                  <input name="password" placeholder="Repeat your password" type="password" id="repeat-password" class="form-control form-control-lg " />
+                  <input name="repeat_password" placeholder="Repeat your password" type="password" id="repeat-password" class="form-control form-control-lg " />
+                  <?php echo isset($this->check['2'])?'<p class="warning px-2 mt-2" >'.$this->check['2'].'</p>':'' ?> 
                 </div>
 
 
@@ -49,8 +50,11 @@ global $mediaFiles;
                     I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
                   </label>
                 </div>
-
+                <?php if($this->check['0']==1 && $this->check['0']!=null){
+                            echo '<div class="form-group px-3 m-0 w-100"><p class="warning px-2 mt-2">Account already exists</p></div>';
+                      } ?>
                 <div class="d-flex justify-content-center">
+                
                   <button name="btn_submit" type="submit" id="register" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                 </div>
 

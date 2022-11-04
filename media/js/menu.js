@@ -32,5 +32,8 @@ $(document).ready(function () {
   $('#logout').click(function(e){
     e.stopPropagation();
     var cf = confirm("Are you sure logout!");
+    if (cf == false) {
+      e.preventDefault();
+    }
   })
 });
