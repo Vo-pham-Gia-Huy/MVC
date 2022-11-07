@@ -21,7 +21,7 @@ $(document).ready(function () {
   $("#register").click(function (e) {
     var formInvalid = false;
     if (pass != repeatPass) {
-      $('#repeat-password')
+      $("#repeat-password")
         .parent()
         .append(
           '<p class="warning px-2 mt-2">This field cannot have special characters</p>'
@@ -51,6 +51,15 @@ $(document).ready(function () {
           );
         formInvalid = true;
       }
+      // if($(this).attr("id") == "agree" && $(this).val() === ""){
+      //   $(this)
+      //     .parent()
+      //     .parent()
+      //     .append(
+      //       '<p class="warning px-2 mt-2 mb-3">Please agree all statements</p>'
+      //     );
+      //   formInvalid = true;
+      // }
     });
 
     if (formInvalid) {

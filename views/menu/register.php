@@ -43,15 +43,16 @@ global $mediaFiles;
                   <?php echo isset($this->check['2'])?'<p class="warning px-2 mt-2" >'.$this->check['2'].'</p>':'' ?> 
                 </div>
 
-
-                <div class="form-check d-flex justify-content-center mb-5">
-                  <input  class="form-check-input me-2" type="checkbox" value="" id="agree" />
-                  <label class="form-check-label" for="agree">
-                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
-                  </label>
+                <div class="text-center">
+                  <div class="form-check d-flex justify-content-center mb-3">
+                    <input  class="form-check-input me-2" type="checkbox" value="" id="agree" />
+                    <label class="form-check-label" for="agree">
+                      I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                    </label>
+                  </div>
                 </div>
                 <?php if($this->check['0']==1 && $this->check['0']!=null){
-                            echo '<div class="form-group px-3 m-0 w-100"><p class="warning px-2 mt-2">Account already exists</p></div>';
+                            echo '<div class="form-group px-3 m-0 w-100 text-center"><p class="warning px-2 mt-2 mb-3">Account already exists</p></div>';
                       } ?>
                 <div class="d-flex justify-content-center">
                 
